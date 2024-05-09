@@ -1,0 +1,21 @@
+.form {
+    line-height: 1;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 20pc;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formBtn {
+    max-width: 6pc;
+    margin: 0 auto;
+}
