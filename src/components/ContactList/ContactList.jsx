@@ -7,21 +7,28 @@ import {selectNameFilter} from '../../redux/filtersSlice'
 import { useSelector } from 'react-redux';
 
 export default function ContactList() {
-  const reduxContacts = useSelector(selectContacts);
-  const reduxFilter = useSelector(selectNameFilter);
+const contacts = useSelector((state) => state.contacts.items)
+// console.log(contacts);
+
+
+  // const reduxContacts = useSelector(selectContacts);
+  // const reduxFilter = useSelector(selectNameFilter);
   
 
-  const filteredContacts = reduxContacts.filter(contact => contact.name.toLowerCase().includes(reduxFilter.toLowerCase()))
+  // const filteredContacts = reduxContacts.filter(contact => contact.name.toLowerCase().includes(reduxFilter.toLowerCase()))
+  if (!contacts) {
+    return;
+  }
+
   return (
     <ul>
-      {filteredContacts.map((contact) => (
+      {contacts.map((contact) => (
         <li key={contact.id} className={css.item}>
           <BsFillPersonFill />
           <BsFillTelephoneFill />
           <ContactListItem
             name={contact.name}
             number={contact.number}
-            // onDelete={onDelete}
             id={contact.id}
           />
 
@@ -29,5 +36,5 @@ export default function ContactList() {
         </li>
       ))}
     </ul>
-  );
+  )
 }
