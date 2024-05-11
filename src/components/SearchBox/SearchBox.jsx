@@ -4,7 +4,10 @@ import {selectNameFilter, changeFilter} from '../../redux/filtersSlice'
 
 export default function SearchBox() {
   const dispatch = useDispatch();
-  const reduxValue = useSelector(selectNameFilter);
+  const nameFilter = useSelector(selectNameFilter);
+  const handleChange = (evt) => {
+    dispatch(changeFilter(evt.target.value))
+  }
 
   return (
     <div className={css.container}>
@@ -12,8 +15,8 @@ export default function SearchBox() {
       <input
         className={css.searchInput}
         type="text"
-        value={reduxValue}
-        onChange={(evt) => dispatch(changeFilter(evt.target.value))}
+        value={nameFilter}
+        onChange={handleChange}
       />
     </div>
   );
