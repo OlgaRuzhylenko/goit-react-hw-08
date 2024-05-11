@@ -2,21 +2,23 @@ import ContactListItem from "../ContactListItem/ContactListItem";
 import css from "./ContactList.module.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { selectContacts } from "../../redux/contactsSlice";
+import { selectContacts, selectFilteredContacts } from "../../redux/contactsSlice";
 import { selectNameFilter } from "../../redux/filtersSlice";
 import { useSelector } from "react-redux";
 
 export default function ContactList() {
+// const contacts = useSelector(selectFilteredContacts)
+
   const contacts = useSelector(selectContacts);
   const nameFilter = useSelector(selectNameFilter);
 
-  // const reduxContacts = useSelector(selectContacts);
-  // const reduxFilter = useSelector(selectNameFilter);
-  if (!contacts) {
-    return;
-  }
+  // if (!contacts) {
+  //   return;
+  // }
 
-  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(nameFilter ? nameFilter.toLowerCase() : ""))
+  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(nameFilter.toLowerCase()))
+  // const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(nameFilter ? nameFilter.toLowerCase() : ""))
+
 
     return (
     <ul>

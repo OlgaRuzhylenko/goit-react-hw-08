@@ -5,12 +5,10 @@ import { fetchContacts, addContact1, deleteContact1 } from "../redux/contactsOps
 const contactsSlice = createSlice({
   name: "contacts",
   initialState: {
-    contacts: {
-      items: [],
+       items: [],
       loading: false,
       error: null,
     },
-  },
   extraReducers: (builder) =>
     builder
       .addCase(fetchContacts.pending, (state) => {
@@ -51,9 +49,15 @@ const contactsSlice = createSlice({
       })
 });
 
-export const selectContacts = (state) => state.contacts.items;
-export const selectLoading = (state) => state.contacts.loading;
-export const selectError = (state) => state.contacts.error
+export const selectContacts = (state) => state.items;
+export const selectLoading = (state) => state.loading;
+export const selectError = (state) => state.error
+export const selectFilteredContacts = state => {
+  const contacts = state.items;
+  const contactsFilter = state.filter.name;
+
+  return contacts.filter(contact => contact.name.toLowerCase().includes(contactsFilter.toLowerCase()))
+}
 
 export const { addContact, deleteContact } = contactsSlice.actions;
 export default contactsSlice.reducer;
