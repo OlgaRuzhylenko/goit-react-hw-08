@@ -54,9 +54,8 @@ export const selectLoading = (state) => state.contacts.loading;
 export const selectError = (state) => state.contacts.error;
 
 export const selectFilteredContacts = state => {
-  const contacts = state.items;
+  const contacts = state.contacts.items;
   const contactsFilter = state.filter.name;
-
   return contacts.filter(contact => contact.name.toLowerCase().includes(contactsFilter.toLowerCase()))
 }
 
