@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import css from "./ContactForm.module.css";
 import { addContact1 } from "../../redux/contactsOps";
 
-
 export default function ContactForm() {
- 
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -13,7 +11,6 @@ export default function ContactForm() {
       name: values.username,
       number: values.usernumber,
     };
-    // dispatch(addContact(newContact.name, newContact.number));
     dispatch(addContact1(newContact));
 
     actions.resetForm();
