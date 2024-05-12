@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ErrorMessage } from "formik";
 
 axios.defaults.baseURL = "https://663c6b1417145c4d8c362498.mockapi.io/";
 
