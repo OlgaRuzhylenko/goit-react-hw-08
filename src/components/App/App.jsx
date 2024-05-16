@@ -4,10 +4,9 @@ import ContactList from "../ContactList/ContactList";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "../../redux/contactsOps.js";
-import { selectLoading, selectError } from "../../redux/contactsSlice.js";
+import { fetchContacts } from "../../redux/contacts/operations.js";
+import { selectLoading, selectError } from "../../redux/contacts/selectors.js";
 
-import css from "./App.module.css";
 import { useEffect } from "react";
 
 export default function App() {
@@ -30,4 +29,3 @@ export default function App() {
     </div>
   );
 }
-

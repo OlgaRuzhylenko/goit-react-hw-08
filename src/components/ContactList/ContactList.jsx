@@ -2,7 +2,7 @@ import ContactListItem from "../ContactListItem/ContactListItem";
 import css from "./ContactList.module.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { selectFilteredContacts } from "../../redux/contactsSlice";
+import { selectFilteredContacts } from "../../redux/contacts/selectors";
 import { useSelector } from "react-redux";
 
 export default function ContactList() {
