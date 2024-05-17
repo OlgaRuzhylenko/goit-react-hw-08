@@ -12,5 +12,5 @@ export default function ContactListItem({ name, number, id }) {
       <p>{number}</p>
       <button onClick={handleDelete}>Delete</button>
     </div>
-  );
+  )
 }
