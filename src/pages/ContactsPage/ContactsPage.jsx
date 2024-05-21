@@ -4,20 +4,21 @@ import { selectError, selectLoading } from "../../redux/contacts/selectors";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import { fetchContacts } from "../../redux/contacts/operations";
 
 export default function ContactsPage() {
     const dispatch = useDispatch();
     const isLoading = useSelector(selectLoading);
   const isError = useSelector(selectError);
 
-//    useEffect(() => {
-//     dispatch(fetchContacts());
-//   }, [dispatch]);
+   useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
     
     return (
     <div>
    <h1>Phonebook</h1>
-   {/* {isLoading && <Loader />} */}
+   {/* {isLoading && <Loader/>} */}
      {/* {isError && <Error></Error>} */}
     <ContactForm />
       <SearchBox />
