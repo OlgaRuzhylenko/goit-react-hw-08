@@ -2,6 +2,7 @@ import { Formik, Form, Field } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./ContactForm.module.css";
 import { addContact1 } from "../../redux/contacts/operations";
+import { toast } from "react-hot-toast";
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -11,7 +12,14 @@ export default function ContactForm() {
       name: values.username,
       number: values.usernumber,
     };
-    dispatch(addContact1(newContact));
+    dispatch(addContact1(newContact))
+    .unwrap()
+    .then((data) => {
+      toast.success("Success!!!");
+    })
+    .catch((error) => {
+      toast.error("Try again");
+    });
 
     actions.resetForm();
   };
