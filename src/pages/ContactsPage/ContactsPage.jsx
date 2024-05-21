@@ -24,4 +24,4 @@ export default function ContactsPage() {
      <ContactList/>
   </div>
   );
-};
+}

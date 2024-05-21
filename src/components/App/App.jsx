@@ -11,6 +11,7 @@ import Layout from "../Layout/Layout.jsx";
 import { useEffect } from "react";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import { refreshUser } from "../../redux/auth/operations.js";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const RegisterPage = lazy(() =>
@@ -22,13 +23,13 @@ const ContactsPage = lazy(() =>
 );
 
 export default function App() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const isLoading = useSelector(selectLoading);
   // const isError = useSelector(selectError);
 
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   // return (
   //   <div>
@@ -45,10 +46,10 @@ export default function App() {
     <Layout>
       <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/register" element={<RegisterPage/>} />
-          <Route path="/login" element={<LoginPage/>} />
-          <Route path="/contacts" element={<ContactsPage/>} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
         </Routes>
       </Suspense>
     </Layout>
